@@ -1,55 +1,94 @@
-🔍 Overview of PAYROLL.ahk Script
-This AutoHotkey script is designed to calculate the net monthly salary of an employee, including deductions, bonuses, overtime, and wage adjustments. It uses a GUI (Graphical User Interface) to collect user input and then performs calculations based on this data.
+==========================
+ PAYROLL.ahk - Payroll Tool
+==========================
 
-📋 Key Functionalities
-Input Collection
-The GUI allows the user to enter:
-Base salary
-Insurance contributions (IKA, TEA, etc.)
-Advances or deductions
-Number of workdays and hours
-Overtime hours (categorized by type)
-It also takes percentage rates for various contributions and surcharges.
-Calculation Logic
-The script calculates:
-Net salary = Gross - Deductions + Bonuses
-Overtime pay for each type using formulas like:
-overtimePay := hourlyRate * hours * multiplier
+Version: AutoHotkey v1
+Author: Mavroeidis Anastasios (Tasos)
 
-Total deductions are subtracted from the gross pay.
-Adjustments like absences or loans are also considered.
-Output Display
-Results are displayed in a formatted GUI output, showing:
-Total earnings
-Overtime breakdown
-Deductions
-Final payable amount
-File Saving
-The script creates a monthly .txt file storing:
-The calculation details
-Employee data
-Timestamp
-The filename includes the current month and year.
-Modular Design
-Each category of pay (overtime, bonuses, deductions) has its own input section.
-Variables are clearly named according to their use (e.g., nightPay, holidayPay, ikaDeduction).
+Description:
+-------------
+PAYROLL.ahk is a script designed to calculate an employee’s net monthly salary.
+It uses a simple Graphical User Interface (GUI) for data input and performs:
 
-🔧 Technical Details
-AutoHotkey Version: v1 (legacy)
-GUI Creation: Uses traditional Gui, Add commands
-Math: Arithmetic operations are simple and linear; no use of arrays or objects.
-No use of functions or classes, so it's procedural and monolithic.
-No input validation, so it's prone to user error (e.g., entering text where a number is expected).
+- Net salary calculation
+- Overtime and surcharge pay
+- Insurance deductions (IKA, TEA, etc.)
+- Adjustments for advances, absences, or loans
+- Various types of premium pay (night, Sunday, overtime, etc.)
 
-⚠️ Limitations / Room for Improvement
-Issue	Suggested Fix
-Outdated syntax (AHK v1)	Convert to AHK v2
-No input validation	Add checks for numeric input
-Procedural structure	Modularize with functions
-GUI is basic	Add dropdowns, labels, tooltips
-No error handling	Use try/catch in AHK v2
-No saving to Excel/CSV	Add export option
+Main Features:
+---------------
+1. GUI Input for:
+   - Base gross salary
+   - Insurance contributions (IKA, TEA)
+   - Advances, absences
+   - Work and overtime hours
+   - Percentage multipliers for overtime types
 
-✅ Summary
-The script is a well-structured prototype for a payroll system, tailored for manual input and monthly storage. With proper modernization (to AHK v2 or porting to another platform like Unity for Android), it can be turned into a fully professional app.
+2. Calculation:
+   - Net = Gross - Deductions + Bonuses
+   - Overtime pay = hourlyRate * hours * multiplier
+   - Each type of premium pay is calculated separately
 
+3. File Saving:
+   - Generates a .txt file per month
+   - Includes timestamp, employee details, breakdown of payments
+   - Filename format: Payroll_2025_05.txt
+
+4. Output Display:
+   - Shows total earnings, overtime breakdown, deductions, net pay
+
+Technical Info:
+----------------
+- Built with AutoHotkey v1
+- Uses traditional GUI (Gui, Add commands)
+- No input validation (user must enter correct numeric values)
+- Fully procedural, no functions or objects
+- Saves data in plain text files
+
+Limitations:
+-------------
+- Outdated AHK v1 syntax
+- No error handling or validation
+- Basic GUI without dropdowns or tooltips
+- No export to Excel or CSV
+
+Planned Improvements:
+-----------------------
+- Port to AHK v2
+- Add input validation and error checks
+- Refactor to use functions and modular code
+- Enhanced GUI with dropdowns and hints
+- Export results to CSV/Excel
+- Android version via Unity
+
+Sample Output:
+---------------
+Employee: George Papadopoulos  
+Gross: €1,100  
+Overtime:
+ - Night (10h): €125  
+ - Sunday (6h): €135  
+Deductions:
+ - IKA: €180  
+ - TEA: €50  
+Net Pay: €1,130  
+Date: 01/05/2025
+
+How to Use:
+------------
+1. Install AutoHotkey v1 from www.autohotkey.com
+2. Double-click PAYROLL.ahk to run it
+3. Fill in the fields and click "Calculate"
+4. A results file is saved automatically in the same folder
+
+License:
+---------
+Free to use, modify, and distribute.  
+Impersonating the author is forbidden unless you're Tasos himself 😎
+
+Contact:
+---------
+Mavroeidis Anastasios  
+Nea Ionia, Athens, Greece  
+Mail: maxiths1984@gmail.com 
